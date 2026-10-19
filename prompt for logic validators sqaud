@@ -1,0 +1,92 @@
+You are an expert Python backend developer. 
+Design a production‑ready FastAPI/Python function called `analyze_resume(resume_text, jd_text, certifications=None, experience_years=None, region_filter=None, social_login=None, privacy_setting=None)` that integrates with my MVP‑2 Jobnex project.
+
+### Context:
+- The function should analyze a candidate’s resume against a job description.
+- It must calculate a **match score**, identify **matched skills**, **missing skills**, and generate **suggestions**.
+- It should also enrich results with **interview preparation questions**, **suggested learning resources**, and update **dashboard status**.
+- The function output will be stored in a MySQL table named `resume_analyzer`.
+
+### Table Schema (resume_analyzer):
+- analysis_id (PK, auto_increment)
+- resume_text (longtext)
+- jd_text (longtext)
+- created_at (timestamp, default CURRENT_TIMESTAMP)
+- match_score (decimal(5,2))
+- matched_skills (json)
+- missing_skills (json)
+- sugesstions (json)
+- certifications (text)
+- experience_years (int)
+- region_filter (varchar(50))
+- interview_prep (text)
+- suggested_resources (text)
+- dashboard_status (varchar(50))
+- auto_apply (tinyint(1), default 0)
+- auto_refusal (tinyint(1), default 0)
+- social_login (varchar(20))
+- privacy_setting (varchar(20))
+
+### Requirements:
+1. Normalize text (lowercase, strip punctuation).
+2. Use a predefined skill list (e.g., Python, SQL, React, FastAPI, Docker).
+3. Compute match_score = (matched_skills / total_skills) * 100.
+4. Generate suggestions for missing skills (e.g., “Try learning SQL and add it to your resume”).
+5. Provide interview_prep questions (pick from a built‑in bank: technical, behavioral, HR, situational).
+6. Suggest learning resources (dummy links or structured JSON).
+7. Accept optional filters (certifications, experience_years, region_filter).
+8. Return a JSON object with all fields mapped to the schema.
+9. Ensure clean error handling and extensibility for future AI integration.
+
+### Output:
+- Return a Python dictionary with keys exactly matching the table columns.
+- Example keys: "match_score", "matched_skills", "missing_skills", "sugesstions", "interview_prep", "suggested_resources", "dashboard_status", etc.
+- Ensure JSON‑serializable output for skills, suggestions, and resources.
+
+Write the complete Python code for analyzer.py with clear comments, modular design, and ready to integrate with FastAPI.
+
+
+
+
+
+You are an expert Python backend developer. 
+Write a complete script called `insert_test.py` that tests inserting analysis results into my MySQL table `resume_analyzer` using the new MVP‑2 analyzer.py module.
+
+### Context:
+- I already have `analyzer.py` with `analyze_resume`, `to_db_row`, and `INSERT_SQL`.
+- My table schema is:
+
+    analysis_id INT AUTO_INCREMENT PRIMARY KEY  
+    resume_text LONGTEXT  
+    jd_text LONGTEXT  
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP  
+    match_score DECIMAL(5,2)  
+    matched_skills JSON  
+    missing_skills JSON  
+    sugesstions JSON  
+    certifications TEXT  
+    experience_years INT  
+    region_filter VARCHAR(50)  
+    interview_prep TEXT  
+    suggested_resources TEXT  
+    dashboard_status VARCHAR(50)  
+    auto_apply TINYINT(1) DEFAULT 0  
+    auto_refusal TINYINT(1) DEFAULT 0  
+    social_login VARCHAR(20)  
+    privacy_setting VARCHAR(20)
+
+### Requirements:
+1. Import `analyze_resume`, `to_db_row`, and `INSERT_SQL` from analyzer.py.
+2. Connect to MySQL using `mysql.connector` (or PyMySQL).
+3. Run `analyze_resume()` with sample resume and JD text, plus optional filters (certifications, experience_years, region_filter, social_login, privacy_setting).
+4. Convert the result with `to_db_row(result)`.
+5. Execute `INSERT_SQL` with the converted row.
+6. Commit the transaction and print the inserted row ID.
+7. Include clean error handling (try/except for DB connection and query execution).
+8. Close the connection properly in a `finally` block.
+9. Keep the script standalone — no FastAPI imports.
+
+### Output:
+- Full Python code for `insert_test.py`.
+- Clear comments explaining each step.
+- Ready to run from the command line to verify that analyzer.py results insert correctly into MySQL.
