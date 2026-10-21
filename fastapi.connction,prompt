@@ -75,3 +75,35 @@ Important:
 - Focus only on making the backend and frontend work together for a demo showcase.
 - Highlight missing connections or mismatches so they can be fixed before deployment.
 
+
+
+
+You are assisting in verifying that the frontend (HTML, CSS, JS) is properly connected to the backend Python files (backend.py, database.py, analyzer.py, etc.).
+
+Tasks:
+1. Analyze backend routes and functions using AST parsing:
+   - Identify endpoints, input parameters, and expected responses.
+   - Check database interactions and logic flow.
+
+2. Inspect frontend files:
+   - Ensure HTML forms and buttons trigger the correct backend routes.
+   - Verify JavaScript fetch/axios calls point to the right endpoints.
+   - Confirm CSS styling loads without breaking functionality.
+
+3. Generate test/demo code:
+   - Simulate user actions (form submission, button click, search).
+   - Show backend route being triggered and response returned.
+   - Render backend response into the correct frontend element.
+
+4. Run integration checks:
+   - Provide sample test data for API calls.
+   - Mock database if necessary.
+   - Log request/response cycle to confirm smooth operation.
+
+Important:
+- Focus only on verifying frontend–backend connectivity and smooth application flow.
+- Do not generate deployment scripts yet.
+- Highlight any broken links, missing connections, or mismatches.
+- Ensure the demo runs locally and showcases a complete frontend → backend → frontend cycle.
+
+
