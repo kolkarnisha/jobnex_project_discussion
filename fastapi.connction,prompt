@@ -18,3 +18,60 @@ Output should be:
 1. A structured diagram inside Figma showing backend–frontend linkage
 2. Labels for each connection (e.g., `/login` → login.html + login.css + login.js)
 3. Step‑by‑step mapping notes for developers
+
+
+
+
+Analyze all backend Python files in the project folder (backend.py, database.py, analyzer.py, etc.) using AST parsing to detect:
+- Defined routes, functions, and API endpoints
+- Input/output parameters and expected responses
+- Database interactions and logic flow
+
+Then, connect these backend endpoints to the corresponding frontend files:
+- Map HTML pages to backend routes (e.g., login.html → /login endpoint)
+- Attach CSS stylesheets for consistent UI styling
+- Link JavaScript files for API calls, form validation, and dynamic updates
+
+Generate a demo workflow that shows:
+1. User actions on the frontend (form submission, search, button click)
+2. The backend function or route being triggered
+3. The response rendered back into the frontend page
+4. Visual flow diagram inside Figma that clearly illustrates frontend → backend → frontend cycle
+
+Important:
+- Do not proceed to deployment.
+- Ensure the demo showcases full interaction from frontend to backend and back.
+- Highlight missing connections or mismatches so they can be fixed before deployment.
+
+
+
+
+
+
+You are assisting in connecting backend Python files (backend.py, database.py, analyzer.py, etc.) with frontend files (HTML, CSS, JS). 
+Tasks:
+1. Parse backend Python files using AST to identify:
+   - Defined routes, functions, and API endpoints
+   - Input/output parameters and expected responses
+   - Database interactions
+
+2. Map each backend route to the correct frontend file:
+   - HTML pages → backend endpoints (e.g., login.html → /login)
+   - CSS stylesheets → ensure consistent styling
+   - JS files → handle API calls, form validation, and dynamic updates
+
+3. Generate demo code that showcases:
+   - User action on frontend (form submission, button click, search)
+   - Backend route being triggered
+   - Response rendered back into the frontend page
+
+4. Ensure the demo runs locally:
+   - Provide sample test data
+   - Mock database if needed
+   - Show full request → response cycle
+
+Important:
+- Do not generate deployment scripts yet.
+- Focus only on making the backend and frontend work together for a demo showcase.
+- Highlight missing connections or mismatches so they can be fixed before deployment.
+
