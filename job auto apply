@@ -1,0 +1,24 @@
+Areas You Can Point Out for Improvement
+Integration vs Unit Tests:
+Most tests are unit‑level with mocks. You could suggest adding integration tests that run the full flow: resume upload → job fetch → queue → apply → email send.
+
+Security & Compliance:
+Auto‑applying jobs and sending emails can violate job board/LinkedIn TOS. Point out the need for user consent flows and compliance checks.
+
+Resume Handling:
+Currently resumes are just strings. Suggest adding file upload handling (PDF/DOCX parsing) and sanitization.
+
+Job Scraping Robustness:
+The job fetcher only tests HTML cleaning and caching. Recommend adding tests for different job sources, pagination, and malformed responses.
+
+Email Attachments:
+They tested attaching a PDF, but not multiple attachments or large files. Suggest stress‑testing email payloads.
+
+Configuration Management:
+Environment variables are patched in tests. Recommend using a config module or .env loader for cleaner management.
+
+User Permission Flow:
+Your requirement was “auto applies by user permission.” The tests don’t show any explicit consent mechanism — it just queues and sends. That’s a gap worth pointing out.
+
+Frontend Integration:
+The FastAPI endpoints are tested, but there’s no check that the frontend actually consumes them correctly. Suggest adding end‑to‑end tests with a JS client.
