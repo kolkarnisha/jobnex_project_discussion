@@ -1,0 +1,20 @@
+Analyze all backend Python files inside the project folder (e.g., backend.py, database.py, analyzer.py). 
+Use AST parsing to identify:
+- Defined routes, functions, and API endpoints
+- Input/output parameters
+- Data models and response structures
+
+Then, map each backend route or function to the most suitable frontend file:
+- Connect HTML pages to their corresponding backend endpoints
+- Link CSS stylesheets for layout and design consistency
+- Attach JavaScript files for dynamic interactions and API calls
+
+Generate a clear connection diagram showing:
+- Backend functions → Frontend HTML pages
+- Associated CSS and JS files
+- Data flow between user input (frontend) and backend responses
+
+Output should be:
+1. A structured diagram inside Figma showing backend–frontend linkage
+2. Labels for each connection (e.g., `/login` → login.html + login.css + login.js)
+3. Step‑by‑step mapping notes for developers
