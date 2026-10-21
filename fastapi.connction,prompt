@@ -107,3 +107,34 @@ Important:
 - Ensure the demo runs locally and showcases a complete frontend → backend → frontend cycle.
 
 
+
+
+You are assisting in verifying that the FastAPI backend (backend.py, database.py, analyzer.py, etc.) is properly connected to the frontend (HTML, CSS, JS).
+
+Tasks:
+1. Inspect FastAPI backend:
+   - Parse backend.py and related files using AST to identify defined routes, endpoints, and response models.
+   - Confirm each route returns valid JSON or HTML templates via Jinja2.
+
+2. Inspect frontend files:
+   - Ensure HTML forms and buttons trigger the correct FastAPI routes.
+   - Verify JavaScript fetch/axios calls point to the right FastAPI endpoints (e.g., /login, /search).
+   - Confirm CSS styling loads without breaking functionality.
+
+3. Generate demo integration code:
+   - Show sample FastAPI route definitions with `@app.get` and `@app.post`.
+   - Provide example JS fetch calls to those routes.
+   - Render backend responses into the correct frontend elements.
+
+4. Run smoothness checks:
+   - Provide sample test data for API calls.
+   - Log request/response cycle to confirm frontend → backend → frontend flow.
+   - Highlight broken links, missing connections, or mismatches.
+
+Important:
+- Focus only on verifying frontend–backend connectivity and smooth application flow.
+- Do not generate deployment scripts yet.
+- Ensure the demo runs locally and showcases a complete working cycle.
+
+
+
